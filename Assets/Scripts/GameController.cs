@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public GameObject gameClearText;
+    public GameObject gameOverText;
+    public GameObject ball;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,13 @@ public class GameController : MonoBehaviour
         if (blocks.Length == 0)
         {
             gameClearText.SetActive(true);
+            ball.GetComponent<Rigidbody>().isKinematic = true;
+        }
+
+        if (ball.GetComponent<Ball>().isDead == true)
+        {
+            gameOverText.SetActive(true);
+            ball.GetComponent<Rigidbody>().isKinematic = true;
         }
     }
 }
