@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
     public GameObject gameClearText;
     public GameObject gameOverText;
     public GameObject ball;
+    public GameObject retryButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,12 +23,19 @@ public class GameController : MonoBehaviour
         {
             gameClearText.SetActive(true);
             ball.GetComponent<Rigidbody>().isKinematic = true;
+            retryButton.SetActive(true);
         }
 
         if (ball.GetComponent<Ball>().isDead == true)
         {
             gameOverText.SetActive(true);
             ball.GetComponent<Rigidbody>().isKinematic = true;
+            retryButton.SetActive(true);
         }
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
