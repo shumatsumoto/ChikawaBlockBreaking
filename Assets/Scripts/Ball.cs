@@ -7,6 +7,7 @@ public class Ball : MonoBehaviour
     public bool isDead = false;
     public float speed = 3.5f;
     public float accelSpeed = 2.1f;
+    public GameObject explosionPrefab;
     bool isStart = false;
     Rigidbody rb;
     // Start is called before the first frame update
@@ -30,6 +31,8 @@ public class Ball : MonoBehaviour
         if (collision.gameObject.CompareTag("Block"))
         {
             Destroy(collision.gameObject);
+            GameObject explosion = Instantiate(explosionPrefab, collision.transform.position, Quaternion.identity);
+            explosion.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
         }
 
         if (collision.gameObject.name == "wall_bottom")

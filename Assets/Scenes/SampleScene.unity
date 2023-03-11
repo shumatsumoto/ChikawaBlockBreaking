@@ -726,6 +726,7 @@ MonoBehaviour:
   isDead: 0
   speed: 4
   accelSpeed: 2
+  explosionPrefab: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
 --- !u!1 &266547662
 GameObject:
   m_ObjectHideFlags: 0
